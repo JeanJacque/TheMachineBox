@@ -1,0 +1,32 @@
+<h1 class="title fadein">
+	WELCOME TO THE MACHINE BOX
+</h1>
+<div class="search-input-container fadein">
+	<input type="" name="" class="search-input" [(ngModel)]="keyword" (keyup.enter)="youtubeSearchByKeyword(keyword)" autofocus>
+</div>
+<div *ngIf="searchResults" class="row results-container">
+	<div class="offset-md-1"></div>
+	<div class="col-md-2" *ngFor="let item of searchResults.items">
+		<md-card class="">
+			<md-card-header>
+				<md-card-title>{{item.snippet.title}}</md-card-title>
+				<md-card-subtitle>{{item.snippet.channelTitle}}</md-card-subtitle>
+			</md-card-header>
+			<md-card-content>
+				<img md-card-image [src]="item.snippet.thumbnails.medium.url">
+			</md-card-content>
+		</md-card>
+	</div>
+</div>
+
+<!-- <md-grid-list cols="5" *ngIf="searchResults" class="results-container">
+	<md-grid-tile *ngFor="let item of searchResults.items">
+		<md-card class="result-card">
+			<md-card-header>
+				<md-card-title>{{item.snippet.title}}</md-card-title>
+				<md-card-subtitle>{{item.snippet.channelTitle}}</md-card-subtitle>
+			</md-card-header>
+			<img md-card-image [src]="item.snippet.thumbnails.medium.url">
+		</md-card>
+	</md-grid-tile>
+</md-grid-list> -->
